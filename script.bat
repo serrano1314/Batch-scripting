@@ -1,12 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
-set a/ n=3
+set /a n=1
 for /f "tokens=1-20 delims=;" %%1 in (backup_path.txt) do (
-  set line=%%1
-  echo !line!
-  set line=%%2
-  echo !line!
-  set line=%%3
-  echo !line!
+  echo|set /p=%%%%!n!>var.txt
+  set line=echo !line!
+  for /f %%g in (var.txt) do (
+    echo %%1
+    echo %%g
+  )
+  set /a n=!n!+1
+  set line=echo %%%!n!
+  !line!
 )
-set /a n=!n!+1
