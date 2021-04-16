@@ -15,7 +15,6 @@ for /f "tokens=*" %%a in (%file%) do (
   if %na% gtr %count% (
     echo [92mSCRIPTING SUCCESS...[0m
     pause
-    color 0f
     goto :endloop
   )
   set /a na=%na%+1
