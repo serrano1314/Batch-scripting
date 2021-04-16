@@ -1,2 +1,3 @@
-C:\Users\serrano\AppData\Local\Programs\Python\Python39\; 
-C:\Users\serrano\AppData\Local\Programs\Python\Python39\Scripts\;C:\Program Files (x86)\Common Files\Intel\Shared Librarie 
+C:\Users\serrano\AppData\Local\Programs\Python\Python39\ 
+C:\Users\serrano\AppData\Local\Programs\Python\Python39\Scripts\ 
+C:\ProgramFiles(x86)\CommonFiles\Intel\SharedLibraries\redist\intel64\compiler 

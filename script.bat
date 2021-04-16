@@ -9,12 +9,14 @@ for /f "tokens=*" %%a in (backup_path.txt) do (
   set ch=^!line:~%na%,1^!
   echo|set /p=!ch!
   set delim=;
-  set /a na=na+1
+  set /a na=%na%+1
   if !ch!==!delim! (
-    echo ^!line:~%nb%,%na%^! >> output.txt
+    ::echo ^!line:~%nb%,%na%^! >> output.txt
+    echo. >> output.txt
     set /a nb=%na%
     pause
-
+  ) else (
+    <nul set /p=!ch!>>output.txt
   )
   goto :loop
 )
