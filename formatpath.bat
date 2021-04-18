@@ -1,27 +1,29 @@
 @echo off
 set /a na=0
-set /a nb=0
-set file=backup_path.txt
+set file=%~1
+set outfile=output.txt
+if exist %outfile% ( 
+  echo %outfile% deleted
+  del %outfile% 
+  )
 setlocal enabledelayedexpansion
 for %%i in (%file%) do @set count=%%~zi
 for /f "tokens=*" %%a in (%file%) do (
   set line=%%a 
-  ::pause 
+  set delim=;
   :loop
   set ch=^!line:~%na%,1^!
-  ::echo|set /p=!ch!
-  set delim=;
-  set end=?
   if %na% gtr %count% (
+    echo.
     echo [92mSCRIPTING SUCCESS...[0m
-    pause
+    echo %outfile% file created.
+    notepad %outfile%
     goto :endloop
   )
   set /a na=%na%+1
   if !ch!==!delim! (
-    ::echo ^!line:~%nb%,%na%^! >> output.txt
-    echo ; >>output.txt
-    echo|set /p=. 
+    echo ;>>output.txt
+    echo|set /p=.
   ) else (
     <nul set /p=!ch!>>output.txt
   )
