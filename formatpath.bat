@@ -39,7 +39,7 @@ goto :eof
       echo ;>>output.txt
       echo|set /p=.
     ) else (
-      <nul set /p=!ch!>>output.txt
+      <nul set /p=!ch!>>%outfile%.txt
     )
     goto :loop
   )
