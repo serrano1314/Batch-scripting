@@ -3,14 +3,11 @@ echo.
 echo      Usage: formatpath.bat ^<filename^>
 echo. 
 set /a na=0
-set /a x=0
 set file=%~1
 set outfile=output.txt
-:creatoutfile
 if exist %outfile% ( 
-  set /a x=%x%+1
-  set outfile=output%x%.txt
-  goto :creatoutfile
+  echo %outfile% deleted
+  del %outfile% 
   )
 setlocal enabledelayedexpansion
 for %%i in (%file%) do @set count=%%~zi
