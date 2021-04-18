@@ -1,15 +1,19 @@
 @echo off
+
 echo.
 echo      Usage: formatpath.bat ^<filename^>
 echo. 
 set /a na=0
 set file=%~1
 set outfile=output.txt
-if exist %outfile% ( 
-  echo %outfile% deleted
-  del %outfile% 
-  )
 setlocal enabledelayedexpansion
+set /a x=0
+:creatoutfile
+set /a x=%x%+1
+if exist %outfile% ( 
+  set outfile=output%x%.txt
+  goto :creatoutfile
+  )
 for %%i in (%file%) do @set count=%%~zi
 for /f "tokens=*" %%a in (%file%) do (
   set line=%%a 
@@ -19,8 +23,7 @@ for /f "tokens=*" %%a in (%file%) do (
   if %na% gtr %count% (
     echo.
     echo [92mSCRIPTING SUCCESS...[0m
-    echo %outfile% file created at,
-    pwd
+    echo %outfile% file created at
     notepad %outfile%
     goto :endloop
   )
