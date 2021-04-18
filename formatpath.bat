@@ -1,4 +1,7 @@
 @echo off
+echo.
+echo      Usage: formatpath.bat ^<filename^>
+echo. 
 set /a na=0
 set file=%~1
 set outfile=output.txt
@@ -16,7 +19,8 @@ for /f "tokens=*" %%a in (%file%) do (
   if %na% gtr %count% (
     echo.
     echo [92mSCRIPTING SUCCESS...[0m
-    echo %outfile% file created.
+    echo %outfile% file created at,
+    pwd
     notepad %outfile%
     goto :endloop
   )
