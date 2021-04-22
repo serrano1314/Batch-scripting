@@ -32,7 +32,7 @@ goto :eof
       echo [92mSCRIPTING SUCCESS...[0m
       echo %outfile% file created at %cd%
       
-      %outfile%
+      start %cd%\%outfile%
       goto :endloop
     )
     set /a na=%na%+1
